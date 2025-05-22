@@ -6,6 +6,21 @@ server.use( "/test", (req, res) => {
     res.send("This is the test api url");
 });
 
+server.get("/user", (req, res) => {
+    res.send({
+        firstName: "Shashindra Kumar",
+        lastname: "Singh"
+    })
+});
+
+server.post("/user", (req, res) => {
+    res.send("data saved successfuly");
+});
+
+server.delete("/user/:id", (req, res) => {
+    res.send("User deleted");
+});
+
 server.use("/hello", (req, res) => {
     res.send("This is my hello command");
 });
