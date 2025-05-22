@@ -6,14 +6,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "nodejs",
-    "javascript",
-    "express"
+    "Nodejs",
+    "javascript"
   ],
-  "author": "Shashi Singh",
+  "author": "Shashindra Kumar Singh",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^5.1.0"
   }
 }
