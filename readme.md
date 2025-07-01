@@ -1,0 +1,10 @@
+- Install Node npm i node
+- Install Nodemon npm i -g nodemon
+- Install Express npm i -g Express
+- Install Mongoose npm - mongoose
+- Install Mongo DB and signup
+- Install postman for api call and testing
+- Configure git repository
+- Install validator package for validation
+- 
+- 

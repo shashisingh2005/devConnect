@@ -1,34 +1,27 @@
 const express = require("express");
+const connectDB = require("./config/database");
+const User = require("./models/user");
+const app = express();
+app.use(express.json());
 
-const server = express();
-
-server.use( "/test", (req, res) => {
-    res.send("This is the test api url");
+app.post( "/signup", async (req, res) => {
+    const user = new User(req.body);
+    try {
+        await user.save()
+        res.send("User saved successfuly");
+    } catch (error) {
+        res.status(400).send("User is not saved", error.message);
+    }
 });
 
-server.get("/user", (req, res) => {
-    res.send({
-        firstName: "Shashindra Kumar",
-        lastname: "Singh"
-    })
+connectDB()
+.then( () => {
+    console.log("Database connected successfuly.");
+    app.listen("3000", () => {
+        console.log("Server is running on port 3000");
+    });
+})
+.catch( (error) => {
+    console.log("DB connection error, contact with system admin", error.message);
 });
 
-server.post("/user", (req, res) => {
-    res.send("data saved successfuly");
-});
-
-server.delete("/user/:id", (req, res) => {
-    res.send("User deleted");
-});
-
-server.use("/hello", (req, res) => {
-    res.send("This is my hello command");
-});
-
-server.use("/", (req, res) => {
-    res.send("This is the default methods to handle all incoming calls");
-});
-
-server.listen("3000", () => {
-    console.log("Server is running on port 300");
-});
